@@ -16,6 +16,8 @@
 		624901D92B2F78980049B9A9 /* URL_SchemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624901D82B2F78980049B9A9 /* URL_SchemeTests.swift */; };
 		624901E32B2F78980049B9A9 /* URL_SchemeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624901E22B2F78980049B9A9 /* URL_SchemeUITests.swift */; };
 		624901E52B2F78980049B9A9 /* URL_SchemeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624901E42B2F78980049B9A9 /* URL_SchemeUITestsLaunchTests.swift */; };
+		62554ED02B300CBA00E4B279 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62554ECF2B300CBA00E4B279 /* Colors.swift */; };
+		62554ED22B3014E500E4B279 /* NotificationsName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62554ED12B3014E500E4B279 /* NotificationsName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		624901DE2B2F78980049B9A9 /* URL SchemeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "URL SchemeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		624901E22B2F78980049B9A9 /* URL_SchemeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL_SchemeUITests.swift; sourceTree = "<group>"; };
 		624901E42B2F78980049B9A9 /* URL_SchemeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL_SchemeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		62554ECF2B300CBA00E4B279 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		62554ED12B3014E500E4B279 /* NotificationsName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		624901C02B2F78930049B9A9 /* URL Scheme */ = {
 			isa = PBXGroup;
 			children = (
+				62554ECE2B300C9E00E4B279 /* Enum */,
 				624901C12B2F78930049B9A9 /* AppDelegate.swift */,
 				624901C32B2F78930049B9A9 /* SceneDelegate.swift */,
 				624901C52B2F78930049B9A9 /* ViewController.swift */,
@@ -125,6 +130,15 @@
 				624901E42B2F78980049B9A9 /* URL_SchemeUITestsLaunchTests.swift */,
 			);
 			path = "URL SchemeUITests";
+			sourceTree = "<group>";
+		};
+		62554ECE2B300C9E00E4B279 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				62554ECF2B300CBA00E4B279 /* Colors.swift */,
+				62554ED12B3014E500E4B279 /* NotificationsName.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +273,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				624901C62B2F78930049B9A9 /* ViewController.swift in Sources */,
+				62554ED02B300CBA00E4B279 /* Colors.swift in Sources */,
 				624901C22B2F78930049B9A9 /* AppDelegate.swift in Sources */,
+				62554ED22B3014E500E4B279 /* NotificationsName.swift in Sources */,
 				624901C42B2F78930049B9A9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

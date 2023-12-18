@@ -10,13 +10,56 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    var global_nav_controller: UINavigationController?
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+        
+        if url.scheme == "firstsuccess" || url.scheme == "secondsuccess" {
+            let data = handleScheme(url: url)
+            NotificationCenter.default.post(name: NSNotification.Name(NotificationsNames.colorNotification.rawValue), object: nil, userInfo: data)
+        }
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if let urlContext = connectionOptions.urlContexts.first {
+            let url = urlContext.url
+
+            if url.scheme == "firstsuccess" {
+                let data = handleScheme(url: url)
+                if let color = data["color"] as? String, let _ = Colors(rawValue: color) {
+                    let first_vc = ViewController.init()
+                    global_nav_controller = UINavigationController(rootViewController: first_vc)
+                    window?.rootViewController = global_nav_controller
+                    window?.makeKeyAndVisible()
+                    first_vc.createController(data: data)
+                }
+            }
+        }
+    }
+    
+    /// Funcion que procesa una url y extrae los datos de la query
+    ///- Parameters:
+    ///   - url: URL
+    ///   - Returns: [String: Any] diccionario con los datos de la query
+    func handleScheme(url: URL) -> [String: Any]{
+        guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
+            let params = components.queryItems else {
+                print("Invalid URL")
+                return [:]
+        }
+        
+        if let data = params.first(where: { $0.name == "color" })?.value {
+            let info = ["color": data]
+            return info
+        } else {
+            return [:]
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
